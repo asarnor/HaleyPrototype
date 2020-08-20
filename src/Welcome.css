@@ -1,0 +1,62 @@
+.Welcome {
+    background-image: linear-gradient(to bottom, #DEDDDD, #DEDDDD 509px, white 50%, white);;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+h1 {
+    height: 128px;
+    width: 807px;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 32px;
+    width: 596px;
+    word-wrap: normal;
+}
+
+span {
+    font-size: 20px;
+    width: 185px;
+    margin-left: 12px;
+}
+
+button {
+    width: 125px;
+    height: 80px;
+    background-color: #db6323;
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    border: none;
+}
+
+.pwc-image {
+    width: 110px;
+    height: 84px;
+    margin-bottom: 178px;
+}
+
+.button-section {
+    display: flex;
+    margin-top: 12px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    width: 807px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-text {
+    height: 220px;
+    padding-top: 26px;
+}
