@@ -1,0 +1,28 @@
+.task-execution-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+.task-execution-left-pane {
+  display: flex;
+  flex-direction: column;
+  background-color: #dedddd;
+  height: 100vh;
+}
+
+.task-execution-right-pane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#automationVideo {
+  width: 100%;
+  height: 100%;
+}
+
+.chat-field-wrapper {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+}
