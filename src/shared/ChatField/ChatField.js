@@ -5,13 +5,6 @@ import ChatInput from '../ChatInput/ChatInput';
 import './ChatField.css';
 
 const ChatField = () => {
-  const [messages, setMessages] = useState(sampleMessages);
-
-  useLayoutEffect(() => {
-    const messagesContainer = document.querySelector('.messages-container');
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }, [messages]);
-
   // Message Definition:
   // {
   //   id: number unique,
@@ -19,11 +12,19 @@ const ChatField = () => {
   //   text: string
   // }
 
+  const [messages, setMessages] = useState(sampleMessages);
+
+  useLayoutEffect(() => {
+    const messagesContainer = document.querySelector('.messages-container');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }, [messages]);
+
   const addMessage = (messageText) => {
-    const lastMessageId = messages[messages.length - 1];
+    const lastMessage = messages[messages.length - 1];
+    const id = lastMessage ? lastMessage.id + 1 : 1;
 
     const message = {
-      id: lastMessageId.id + 1,
+      id,
       speaker: 'User',
       text: messageText,
     };
