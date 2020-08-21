@@ -5,7 +5,7 @@ import { ReactComponent as PWCLogo } from '../assets/PWCLogoBlack.svg';
 import { ReactComponent as Illustration } from '../assets/humaaans-sitting-1.svg';
 import './Welcome.css';
 
-function Welcome() {
+const Welcome = ({ advancePage }) => {
   const [text, setText] = useState('Greetings from Haley');
   const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(0.8);
@@ -21,26 +21,22 @@ function Welcome() {
   const voice = voices[voiceIndex] || null;
 
   return (
-    <>
-      <div className="Welcome">
-        <div className="container">
-          <div className="content">
-            <section className="header-section">
-              <PWCLogo className="pwc-logo" />
-              <h1>Welcome, Haley. How can Duke help you today?</h1>
-            </section>
-            <section className="content-section">
-              <div className="welcome-chat">
-                <ChatInput />
-              </div>
-            </section>
+    <div className="Welcome">
+      <div className="content">
+        <section className="header-section">
+          <PWCLogo className="pwc-logo" />
+          <h1>Welcome, Haley. How can Duke help you today?</h1>
+        </section>
+        <section className="content-section">
+          <div className="welcome-chat">
+            <ChatInput callBack={advancePage} />
           </div>
-
-          <Illustration className="welcome-illustration" />
-        </div>
+        </section>
       </div>
-    </>
+
+      <Illustration className="welcome-illustration" />
+    </div>
   );
-}
+};
 
 export default Welcome;
