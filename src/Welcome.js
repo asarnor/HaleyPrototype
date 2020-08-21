@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import "./Welcome.css";
 import Joyride from "react-joyride";
 import { useSpeechSynthesis } from "react-speech-kit";
+import { recognizeSpeechInput } from './util/speechRecognizer';
 
 function Welcome() {
   const [stepsEnabled, setStepsEnabled] = useState(true);
@@ -50,6 +51,11 @@ function Welcome() {
     }
   };
 
+  const handleSpeechInputClick = async () => {
+    const result = await recognizeSpeechInput();
+    console.log(result);
+  };
+
   return (
     <>
       <div className="Welcome">
@@ -88,6 +94,8 @@ function Welcome() {
           </div>
 
           <div className="image"></div>
+
+          <button onClick={handleSpeechInputClick}>Speak</button>
         </div>
       </div>
     </>
