@@ -4,7 +4,7 @@ import { ReactComponent as Microphone } from '../../assets/microphone.svg';
 
 import './ChatInput.css';
 
-const ChatInput = ({ placeholder = 'Type or say something' }) => {
+const ChatInput = ({ placeholder = 'Type or say something', callBack }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e) => setInputValue(e.target.value);
@@ -12,8 +12,8 @@ const ChatInput = ({ placeholder = 'Type or say something' }) => {
   const handleMicButtonClick = async () => {
     const result = await recognizeSpeechInput();
     const text = result.privText;
-    console.log(text);
     setInputValue(text);
+    callBack(text);
   };
 
   return (

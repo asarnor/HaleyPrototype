@@ -3,11 +3,7 @@ import './App.css';
 import Welcome from './Welcome/Welcome';
 
 function App() {
-  return (
-    <>
-    <Welcome/>
-    </>
-  );
+  return <Welcome />;
 }
 
 export default App;
