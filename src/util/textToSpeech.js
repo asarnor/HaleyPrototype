@@ -2,6 +2,7 @@ import {
   SpeechConfig,
   AudioConfig,
   SpeechSynthesizer,
+  SpeakerAudioDestination,
 } from 'microsoft-cognitiveservices-speech-sdk';
 
 const subscriptionKey = 'c184146a9e5c4b80a93cc8f56486ca31';
@@ -12,7 +13,9 @@ const speechConfig = SpeechConfig.fromSubscription(
 );
 speechConfig.speechRecognitionLanguage = 'en-US';
 
-const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
+const player = new SpeakerAudioDestination();
+const audioConfig = AudioConfig.fromDefaultSpeakerOutput(player);
+
 const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
 
 export default synthesizer;

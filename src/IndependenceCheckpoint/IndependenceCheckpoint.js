@@ -21,7 +21,7 @@ const IndependenceCheckpoint = ({ advancePage }) => {
         </section>
         <section className="content-section">
           <div className="welcome-chat">
-            <ChatInput />
+            <ChatInput callBack={advancePage} />
           </div>
           <div className="options-container">
             <h3>
