@@ -17,7 +17,7 @@ const TaskExecution = () => {
         </div>
       </div>
       <div className="task-execution-right-pane">
-        <video id="automationVideo">
+        <video id="automationVideo" muted>
           <source src={movie} />
         </video>
       </div>

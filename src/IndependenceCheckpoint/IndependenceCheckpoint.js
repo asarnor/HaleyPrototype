@@ -1,18 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { speak } from '../util/textToSpeech';
 import ChatInput from '../shared/ChatInput/ChatInput';
 import { ReactComponent as PWCLogo } from '../assets/PWCLogoBlack.svg';
 
-const IndependenceCheckpoint = () => {
+import './IndependenceCheckpoint.css';
+
+const IndependenceCheckpoint = ({ advancePage }) => {
+  useEffect(() => {
+    const onMountText =
+      'Haley, what do you want to do on Independence Checkpoint?';
+    speak(onMountText);
+  }, []);
+
   return (
     <div className="independence-checkpoint">
       <div className="content">
         <section className="header-section">
           <PWCLogo className="pwc-logo" />
-          <h1>Welcome, Haley. How can Duke help you today?</h1>
+          <h1>Haley, what do you want to do on Independence Checkpoint?</h1>
         </section>
         <section className="content-section">
           <div className="welcome-chat">
             <ChatInput />
+          </div>
+          <div className="options-container">
+            <h3>
+              Duke's
+              <br />
+              Skills
+            </h3>
+            <div className="option-box">Add a new security relationship</div>
+            <div className="option-box" onClick={advancePage}>
+              Set up a brokerage account
+            </div>
+            <div className="option-box">Add a loan</div>
+            <div className="option-box">Delete a brokerage account</div>
+            <div className="option-box">Create a portfolio</div>
           </div>
         </section>
       </div>

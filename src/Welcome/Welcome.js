@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
-import { useSpeechSynthesis } from 'react-speech-kit';
+import React, { useEffect } from 'react';
 import ChatInput from '../shared/ChatInput/ChatInput';
+import { speak } from '../util/textToSpeech';
 import { ReactComponent as PWCLogo } from '../assets/PWCLogoBlack.svg';
 import { ReactComponent as Illustration } from '../assets/humaaans-sitting-1.svg';
 import './Welcome.css';
 
 const Welcome = ({ advancePage }) => {
-  const [text, setText] = useState('Greetings from Haley');
-  const [pitch, setPitch] = useState(1);
-  const [rate, setRate] = useState(0.8);
-  const [voiceIndex, setVoiceIndex] = useState(17);
-  const onEnd = () => {
-    // You could do something here after speaking has finished
-  };
-
-  const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
-    onEnd,
-  });
-
-  const voice = voices[voiceIndex] || null;
+  useEffect(() => {
+    const onMountText = 'Welcome, Haley. How can Duke help you today?';
+    speak(onMountText);
+  }, []);
 
   return (
     <div className="Welcome">
