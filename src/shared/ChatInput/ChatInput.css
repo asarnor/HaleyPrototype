@@ -9,7 +9,7 @@
   width: calc(100% - 33px);
   padding-left: 10px;
   font-size: 30px;
-  color: red;
+  color: #db536a;
 }
 
 .chat-input-microphone {
@@ -17,4 +17,6 @@
   right: 0;
   top: -4px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
