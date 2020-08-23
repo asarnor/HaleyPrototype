@@ -4,7 +4,7 @@ const messages = [
   'Thank you. What is the account number?',
   'I would like to confirm your number to be 12345678. Is that correct?',
   'Thank you! I think I have all that I need to create your brokerage account. Should I go ahead and create one?',
-  'Okay, I am working on it',
+  'Okay, I am working on it.',
 ];
 
 class DukeBot {

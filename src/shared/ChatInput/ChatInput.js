@@ -12,7 +12,8 @@ const ChatInput = ({
 
   const handleChange = (e) => setInputValue(e.target.value);
 
-  const handleMicButtonClick = async () => {
+  const handleMicButtonClick = async (e) => {
+    e.preventDefault();
     setInputValue('');
     const result = await recognizeSpeechInput();
     const text = result.privText;
@@ -36,10 +37,14 @@ const ChatInput = ({
         placeholder={placeholder}
         onClick={() => setInputValue('')}
       />
-      <Microphone
+      <button
         className="chat-input-microphone"
+        tabIndex="0"
+        type="button"
         onClick={handleMicButtonClick}
-      />
+      >
+        <Microphone />
+      </button>
     </form>
   );
 };

@@ -37,19 +37,6 @@ const ChatField = ({ startAutomation }) => {
     return lastMessage ? lastMessage.id + 1 : 1;
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      const lastMessage = getLastMessage();
-      if (lastMessage.speaker !== 'Duke') {
-        const dukeResponse = dukeBot.nextMessage();
-        addMessage(dukeResponse, 'Duke');
-        if (dukeBot.noFutureMessages()) {
-          startAutomation();
-        }
-      }
-    }, 400);
-  }, [messages]);
-
   useLayoutEffect(() => {
     const messagesContainer = document.querySelector('.messages-container');
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -66,6 +53,19 @@ const ChatField = ({ startAutomation }) => {
 
     setMessages([...messages, message]);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const lastMessage = getLastMessage();
+      if (lastMessage.speaker !== 'Duke') {
+        const dukeResponse = dukeBot.nextMessage();
+        addMessage(dukeResponse, 'Duke');
+        if (dukeBot.noFutureMessages()) {
+          startAutomation();
+        }
+      }
+    }, 400);
+  }, [messages]);
 
   return (
     <div className="chat-field">
