@@ -1,24 +1,23 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
+import haley from "./assets/humaaans-sitting-1.svg";
+import pwcLogo from "./assets/PwC_Outline_Logo_Black_CMYK.svg";
 import "./Welcome.css";
 import Joyride from "react-joyride";
 import { useSpeechSynthesis } from "react-speech-kit";
+import SpeechComponent from "./SpeechComponent";
 
 function Welcome() {
   const [stepsEnabled, setStepsEnabled] = useState(true);
   const [initialStep, setInitialStep] = useState(0);
-  const [text, setText] = useState("Greetings from Haley");
+  const [text, setText] = useState("Greetings from Haley. How can I help you?");
   const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(0.8);
   const [voiceIndex, setVoiceIndex] = useState(17);
   const [steps, setStep] = useState([
     {
       target: "h1",
-      content: "Hello step",
-    },
-    {
-      target: ".content-text",
-      content: "World step",
-    },
+      content: "Greetings from Haley",
+    }
   ]);
   const onEnd = () => {
     // You could do something here after speaking has finished
@@ -39,12 +38,11 @@ function Welcome() {
 
     if (type === "tooltip") {
       if (index === 0) {
-        speak({ text, voice, rate, pitch })
-        setText("Introducing Duke, PwC's adaptive virtual agent that helps navigates websites making the web easy to use")
+        speak({ text, voice, rate, pitch });
         return;
       }
       if (index === 1) {
-        speak({ text, voice, rate, pitch })
+        speak({ text, voice, rate, pitch });
         return;
       }
     }
@@ -61,33 +59,20 @@ function Welcome() {
         />
         <div className="container">
           <div className="content">
-            <div className="pwc-image"></div>
+            <div className="pwc-image"><img src={pwcLogo} alt="logo" /></div>
             <div className="welcome-haley">
-              <h1>Welcome, Haley</h1>
+              <h1>Welcome, Haley.<br/> How can Duke help you today?</h1>
             </div>
             <div className="bottom-content">
               <div className="content-text">
-                <p>
-                  Introducing Duke, PwC's adaptive virtual agent thathelps
-                  navigates websites making the web easy to use
-                </p>
-                <p> Would you like to continue on using voice? </p>
-              </div>
-
-              <div className="button-section">
-                <div className="button">
-                  <button>YES</button>
-                  <span>Set my preferences using voice</span>
-                </div>
-                <div className="button">
-                  <button>NO</button>
-                  <span>Use text to setup preferences</span>
-                </div>
+              <SpeechComponent/>
               </div>
             </div>
           </div>
 
-          <div className="image"></div>
+          <div className="image">
+            <img src={haley} alt="logo" />
+          </div>
         </div>
       </div>
     </>

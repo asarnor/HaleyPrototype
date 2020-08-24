@@ -7,8 +7,8 @@
 
 h1 {
     height: 128px;
-    width: 807px;
-    font-size: 100px;
+    /* width: 807px; */
+    font-size: 4.0em;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -51,12 +51,16 @@ button {
 }
 
 .content {
-    width: 807px;
+    width: 60vw;
     display: flex;
     flex-direction: column;
 }
 
 .content-text {
     height: 220px;
-    padding-top: 26px;
+    padding-top: 56px;
+}
+
+.container {
+    display: flex;
 }
