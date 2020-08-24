@@ -25,3 +25,9 @@ export const speak = (textInput) => {
     synthesizer.speakTextAsync(textInput, resolve, reject);
   });
 };
+
+export const speakOnKeyDown = (speakingText) => (e) => {
+  if (e.keyCode === 13 || e.keyCode === 32) {
+    speak(speakingText);
+  }
+};

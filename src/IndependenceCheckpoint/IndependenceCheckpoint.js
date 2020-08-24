@@ -1,23 +1,27 @@
 import React, { useEffect } from 'react';
-import { speak } from '../util/textToSpeech';
+import { speak, speakOnKeyDown } from '../util/textToSpeech';
 import ChatInput from '../shared/ChatInput/ChatInput';
 import { ReactComponent as PWCLogo } from '../assets/PWCLogoBlack.svg';
 
 import './IndependenceCheckpoint.css';
 
 const IndependenceCheckpoint = ({ advancePage }) => {
-  useEffect(() => {
-    const onMountText =
-      'Haley, what do you want to do on Independence Checkpoint?';
-    speak(onMountText);
-  }, []);
+  // useEffect(() => {
+  //   const onMountText =
+  //     'Haley, what do you want to do on Independence Checkpoint?';
+  //   speak(onMountText);
+  // }, []);
+
+  const mainText = 'Haley, what do you want to do on Independence Checkpoint?';
 
   return (
     <div className="independence-checkpoint">
       <div className="content">
         <section className="header-section">
           <PWCLogo className="pwc-logo" />
-          <h1>Haley, what do you want to do on Independence Checkpoint?</h1>
+          <h1 tabIndex="0" onKeyDown={speakOnKeyDown(mainText)}>
+            Haley, what do you want to do on Independence Checkpoint?
+          </h1>
         </section>
         <section className="content-section">
           <div className="welcome-chat">
